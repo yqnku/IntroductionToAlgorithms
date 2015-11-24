@@ -23,22 +23,30 @@
 
                 \textbf{Output}:A permutation $(a'_1,a'_2,\cdots,a'_n)$ of the input sequence such that $a'_1 \leq a'_2 \leq \cdots \leq a'_n$.
 
+                \begin{codebox}
+                    \Procname{$\proc{Insertion-Sort(A)}$}
+                    \li \For $j \gets 2$ \To $\id{length}[A]$    \label{li:for}
+                    \li     \Do $\id{key} \gets A[j]$            \label{li:for-begin}
+                    \li         \Comment Insert $A[j]$ into the sorted sequence $A[1 \twodots j-1]$.
+                    \li         $i \gets j-1$
+                    \li         \While $i>0$ and $A[i]>\id{key}$ \label{li:while}
+                    \li            \Do $A[i+1] \gets A[i]$       \label{li:while-begin}
+                    \li                $i \gets i-1$             \label{li:while-end}
+                    \End
+                    \li         $A[i+1] \gets \id{key}$          \label{li:for-end}
+                    \End
+                \end{codebox}
+
+                \textbf{loop invariant}:We use loop invariants to help us understand why an algorithm is correct.We must show three things about a loop invariant:
+
+                \textbf{Initialization}:It is true prior to the first iteration of the loop.
+
+                \textbf{Maintenance}:If it is true before an iteration of the loop,it remains true before the next iteration.
+
+                \textbf{Termination}:When the loop terminates,the invariant gives a useful property that helps show the algorithm is correct.
 
             \subsubsection{Analyzing algorithms}
             \subsubsection{Designing algorithms}
             \subsubsection{Problems}      
-\begin{codebox}
-	\Procname{$\proc{Insertion-Sort(A)}$}
-	\li \For $j \gets 2$ \To $\id{length}[A]$    \label{li:for}
-	\li     \Do $\id{key} \gets A[j]$            \label{li:for-begin}
-	\li         \Comment Insert $A[j]$ into the sorted sequence $A[1 \twodots j-1]$.
-	\li         $i \gets j-1$
-	\li         \While $i>0$ and $A[i]>\id{key}$ \label{li:while}
-	\li            \Do $A[i+1] \gets A[i]$       \label{li:while-begin}
-	\li                $i \gets i-1$             \label{li:while-end}
-	\End
-	\li         $A[i+1] \gets \id{key}$          \label{li:for-end}
-	\End
-\end{codebox}
 
 \end{document}
