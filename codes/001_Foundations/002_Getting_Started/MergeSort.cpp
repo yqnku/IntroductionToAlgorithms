@@ -49,7 +49,8 @@ void MergeSort1(int a[],int size)
 }
 
 
-//Ex 2.3-2
+//Ex 2.3-2  and Program 2-4
+int count = 0;
 void Merge2(int a[],int p,int q,int r)
 {
     int *L = new int[q-p+1];
@@ -72,7 +73,7 @@ void Merge2(int a[],int p,int q,int r)
             a[k] = L[i];
             i++;
         }
-        else if (L[i] < R[j])
+        else if (L[i] <= R[j])
         {
             a[k] = L[i];
             i++;
@@ -81,6 +82,7 @@ void Merge2(int a[],int p,int q,int r)
         {
             a[k] = R[j];
             j++;
+            count += j;
         }
     }
 }
@@ -108,13 +110,14 @@ void Show(int p[],int size)
 }
 int main()
 {
-    int b[] = {10,4,32,2,8,19,20,44,67,89};
+    int b[] = {10,4,32,29,8,19,11,44,67,89};
     Show(b,10);
     MergeSort1(b,10);
     Show(b,10);
-    int c[] = {10,4,32,2,8,19,20,44,67,89};
+    int c[] = {10,4,32,29,8,19,11,44,67,89};
     Show(c,10);
     MergeSort2(c,10);
     Show(c,10);
+    cout<<"inversions:"<<count<<endl;
     return 0;
 }
