@@ -32,6 +32,36 @@ void Insertion_Sort(int p[],int size,bool reversed = false)
         p[i+1] = key;
     }
 }
+
+//Ex2.3-4
+void Insert_Sort_Recursive(int p[],int size,bool reversed = false)
+{
+    if (size == 1)
+        return;
+    else
+    {
+        Insert_Sort_Recursive(p,size-1,reversed);
+        int i = size-2;
+        int key = p[size-1];
+        if (reversed)
+        {
+            while (( i>= 0) && (p[i] > key))
+            {
+                p[i+1] = p[i];
+                i--;
+            }
+        }
+        else
+        {
+            while ((i >= 0) && (p[i] < key))
+            {
+                p[i+1] = p[i];
+                i--;
+            }
+        }
+        p[i+1] = key;
+    }
+}
 void Show(int p[],int size)
 {
     cout<<"-------------------------------------------------\n";
@@ -49,5 +79,11 @@ int main()
     Insertion_Sort(b,10,true);
     Show(a,10);
     Show(b,10);
+    int c[] = {10,4,32,2,8,19,20,44,67,89};
+    int d[] = {10,4,32,2,8,19,20,44,67,89};
+    Insert_Sort_Recursive(c,10,false);
+    Insert_Sort_Recursive(d,10,true);
+    Show(c,10);
+    Show(d,10);
     return 0;
 }
