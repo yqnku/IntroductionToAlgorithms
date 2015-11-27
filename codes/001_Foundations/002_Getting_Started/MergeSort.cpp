@@ -49,7 +49,7 @@ void MergeSort1(int a[],int size)
 }
 
 
-//Ex 2.
+//Ex 2.3-2
 void Merge2(int a[],int p,int q,int r)
 {
     int *L = new int[q-p+1];
